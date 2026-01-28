@@ -13,24 +13,24 @@ START:
 
    ;Load addresses into A registers. Address registers do not store values, they store addresses.
 
-    LEA PLAYER_HEALTH, A0   ;Put the memory address of PLAYER_HEALTH into A0
+    LEA PLAYER_HEALTH, A0   ;Loads the memory address of PLAYER_HEALTH into register A0.
     MOVE.B #$64,(A0)        ;Writes value $64 into memory
     
     LEA PLAYER_POINTS, A1 
     MOVE.W #1500, (A1)
-    
+;Loading addresses for other variables
     LEA PLAYER_X, A2
     LEA PLAYER_Y, A3
     LEA BOSS_HEALTH, A4
     LEA BOSS_X, A5
     LEA BOSS_Y, A6
 
-    MOVE.B #3, PLAYER_LIVES
+    MOVE.B #3, PLAYER_LIVES ;using direct addressing instead of using A registers
     MOVE.B #1, LEVEL_NUMBER  
-    MOVE.B PLAYER_LIVES, D0
+    MOVE.B PLAYER_LIVES, D0 ;Copies the values of PLAYER_LIVES and LEVEL_NUMBER into data registers D0 and D1.
     MOVE.B LEVEL_NUMBER, D1 
        
-    MOVE.W  #120, (A2)       ;Updates memory directly 
+    MOVE.W  #120, (A2)       ;Updates memory directly. Uses address registers to write values to memory. 
     MOVE.W  #80, (A3)         
     MOVE.W  #300, (A4)  
     MOVE.W  #60, (A5)        
@@ -58,6 +58,7 @@ BOSS_Y          DC.W    0            ; Boss Y Position
 PLAYER_SCORE    DC.L    0            ; Player Total Score
 BOSS_SCORE      DC.L    0            ; Boss Total Score
     END    START        
+
 
 *~Font name~Courier New~
 *~Font size~10~

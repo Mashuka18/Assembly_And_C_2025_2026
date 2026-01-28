@@ -24,10 +24,11 @@ START:
     
     MOVE.L (A1)+, D2
     ADD.L D2, D0
-
+    SIMHALT             
 ; Data: 5 long values (32-bit each. At the end, D0 contains the total sum: 5 + 10 + 15 + 20 + 30 = 80            
 ACHIEVEMENT_POINTS: DC.L 5, 10, 15, 20, 30
     END    START        
+
 
 
 *~Font name~Courier New~

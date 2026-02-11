@@ -42,7 +42,7 @@ UPDATE:
         LEA MSG_HEALTH, A1        ; Load address of "Health :" message
         BSR DRAW                  ; Display health label
 
-        MOVE.B #3, D0             ; Trap code 3 (print number in D1)
+        MOVE.B #3, D0             ; Trap code 3 print number in D1
         TRAP #15                  ; Execute system call
 
         LEA CRLF, A1              ; Load newline characters
@@ -60,7 +60,7 @@ UPDATE:
 
 
 DRAW:
-        MOVE.B #13, D0            ; Trap code 13 (print string at A1)
+        MOVE.B #13, D0            ; Trap code 13, print string at A1
         TRAP #15                  ; Execute system call
         RTS                       ; Return
 
@@ -140,7 +140,7 @@ END_COUNT:
 PLAYER_X        DC.L 1            ; Player starting X position
 PLAYER_HEALTH   DC.B 100          ; Player starting health
 
-POWER_UPS       DC.L 10, 55, 220, 0 ; Power-up positions (0 terminates list)
+POWER_UPS       DC.L 10, 55, 220, 0 ; Power-up positions 
 
 ENEMY_POSITIONS DC.L 20,30,40,50,60,70,80,90,200,300,500,0 ; Enemy positions
 
@@ -153,7 +153,4 @@ MSG_GAMEOVER    DC.B 'Game Over',0
 CRLF            DC.B $0D,$0A,0    ; Newline characters
     END    START       
 
-*~Font name~Courier New~
-*~Font size~10~
-*~Tab type~1~
-*~Tab size~4~
+
